@@ -91,7 +91,7 @@ public class Main {
 
     public static double testLoss(double c) throws Exception{
         train(c);
-        String command = "./svm_tool/svm_hmm_classify "+fTest+" "+fOut;
+        String command = "./svm_tool/svm_hmm_classify "+fTest+" "+fModel+" "+fOut;
         System.out.println(command);
         ExecutorService executorService = Executors.newCachedThreadPool();
         Process process = Runtime.getRuntime().exec(command);
@@ -124,6 +124,7 @@ public class Main {
                     int idx = line.indexOf(KEY);
                     System.out.println("\n*******GET LOSS*******\n"+line);
                     result = Double.valueOf(line.substring(idx+KEY.length()));
+		    line = reader.readLine();
                 }
             } catch (Exception  e){
                 e.printStackTrace();
