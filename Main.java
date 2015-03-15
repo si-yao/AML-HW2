@@ -12,16 +12,16 @@ public class Main {
     static String fModel;
     static String fOut;
     public static void main(String[] args) throws Exception{
-	// write your code here
-        String featType = args[0];
-        String trainNum = args[1];
-        String testNum = args[2];
+        // write your code here
+        String featType = args[0];//00
+        String trainNum = args[1];//1
+        String testNum = args[2];//a
         fTrain = "./"+featType+"/"+featType+"."+trainNum+".in";
         fTest = "./"+featType+"/"+featType+"."+trainNum+"."+testNum+".test";
         fModel = "./"+featType+"/"+featType+"."+trainNum+".model";
         fOut = "./"+featType+"/"+featType+"."+trainNum+"."+testNum+".out";
         List<Double> rst = findMin();
-        System.out.println("\n****************************\nFIND OPTIMUM C: "+rst.get(0)+"\nLOSS WITH OPT C: "+rst.get(1)+"\n");
+        System.out.println("\n****************************\nFIND OPTIMUM C: " + rst.get(0) + "\nLOSS WITH OPT C: "+rst.get(1)+"\n");
     }
 
     public static List<Double> findMin() throws Exception{
@@ -75,11 +75,11 @@ public class Main {
         public void run(){
             try {
                 String line = reader.readLine();
-		int i = 0;
+                int i = 0;
                 while (line!= null){
-		    i ++;
-	 	    if(i%200==0)
-                    	System.out.println(line);
+                    i ++;
+                    if(i%200==0)
+                        System.out.println(line);
                     line = reader.readLine();
                 }
                 reader.close();
@@ -116,6 +116,7 @@ public class Main {
                 String KEY = "Average loss per token: ";
                 String line = reader.readLine();
                 while(line!=null){
+                    System.out.println(line);
                     if(!line.contains(KEY)){
                         line = reader.readLine();
                         continue;
