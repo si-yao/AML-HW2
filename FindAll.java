@@ -30,7 +30,9 @@ public class FindAll {
         fOut = "./" + featType + "/" + featType + "." + trainNum + "." + testNum + ".out";
         System.out.print(fTrain);
         writer.write(fTrain+"\n");
+        writer.flush();
         writerV.write(fTrain+"\n");
+        writerV.flush();
         testLoss(0.001, writer, writerV);
         testLoss(0.01, writer, writerV);
         testLoss(0.1, writer, writerV);
