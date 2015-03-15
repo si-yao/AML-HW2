@@ -24,7 +24,8 @@ public class FindAll {
         fModel = "./" + featType + "/" + featType + "." + trainNum + ".model";
         fOut = "./" + featType + "/" + featType + "." + trainNum + "." + testNum + ".out";
         System.out.print(fTrain);
-        writer.write(fTrain);
+        writer.write(fTrain+"\n");
+	writer.flush();
         testLoss(0.001, writer);
         testLoss(0.01, writer);
         testLoss(0.1, writer);
@@ -118,6 +119,7 @@ public class FindAll {
         double result = (result1>=0)? result1: result2;
         System.out.println(c+"\t"+result);
         writer.write(c+"\t"+result+"\n");
+	writer.flush();
         return result;
     }
 
