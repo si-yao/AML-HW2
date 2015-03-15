@@ -21,7 +21,7 @@ public class Main {
         fModel = "./"+featType+"/"+featType+"."+trainNum+".model";
         fOut = "./"+featType+"/"+featType+"."+trainNum+"."+testNum+".out";
         List<Double> rst = findMin();
-        System.out.println("FIND OPTIMUM C: "+rst.get(0)+"\nLOSS WITH OPT C: "+rst.get(1)+"\n");
+        System.out.println("\n****************************\nFIND OPTIMUM C: "+rst.get(0)+"\nLOSS WITH OPT C: "+rst.get(1)+"\n");
     }
 
     public static List<Double> findMin() throws Exception{
@@ -75,8 +75,11 @@ public class Main {
         public void run(){
             try {
                 String line = reader.readLine();
+		int i = 0;
                 while (line!= null){
-                    System.out.println(line);
+		    i ++;
+	 	    if(i%200==0)
+                    	System.out.println(line);
                     line = reader.readLine();
                 }
                 reader.close();
@@ -118,7 +121,7 @@ public class Main {
                         continue;
                     }
                     int idx = line.indexOf(KEY);
-                    System.out.println(line);
+                    System.out.println("\n*******GET LOSS*******\n"+line);
                     result = Double.valueOf(line.substring(idx+KEY.length()));
                 }
             } catch (Exception  e){
