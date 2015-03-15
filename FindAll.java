@@ -24,7 +24,7 @@ public class FindAll {
         BufferedWriter writerV = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(foutV)));
 
         fTrain = "./" + featType + "/" + featType + "." + trainNum + ".in";
-        fTest = "./" + featType + "/" + featType + "." + trainNum + "." + testNum + ".test";
+        fTest = "./" + featType + "/" + featType + "." + 	trainNum + "." + testNum + ".test";
         fTestV = "./" + featType + "/" + featType + "." + trainNum + "." + validNum + ".test";
         fModel = "./" + featType + "/" + featType + "." + trainNum + ".model";
         fOut = "./" + featType + "/" + featType + "." + trainNum + "." + testNum + ".out";
@@ -43,7 +43,7 @@ public class FindAll {
         writer.flush();
         writer.close();
         writerV.flush();
-        writeV.close();
+        writerV.close();
     }
 
 /*
