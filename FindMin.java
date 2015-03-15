@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class FindC {
+public class FindMin {
     static String fTrain;
     static String fTest;
     static String fModel;
@@ -78,7 +78,7 @@ public class FindC {
                 int i = 0;
                 while (line!= null){
                     i ++;
-                    if(i%200==0)
+                    if(i%1000==0)
                         System.out.println(line);
                     line = reader.readLine();
                 }
@@ -101,7 +101,9 @@ public class FindC {
         Future<Double> stderrFuture = executorService.submit(new ParseLoss(stderr));
         double result1 = stdoutFuture.get();
         double result2 = stderrFuture.get();
-        return (result1>=0)? result1: result2;
+        double result = (result1>=0)? result1: result2;
+        System.out.println("\n**********Find Loss**********\nC = "+c+"\tLoss = "+result+"\n");
+        return result;
     }
 
     private static class ParseLoss implements Callable<Double>{
@@ -116,13 +118,11 @@ public class FindC {
                 String KEY = "Average loss per token: ";
                 String line = reader.readLine();
                 while(line!=null){
-                    System.out.println(line);
                     if(!line.contains(KEY)){
                         line = reader.readLine();
                         continue;
                     }
                     int idx = line.indexOf(KEY);
-                    System.out.println("\n*******GET LOSS*******\n"+line);
                     result = Double.valueOf(line.substring(idx+KEY.length()));
                     line = reader.readLine();
                 }
