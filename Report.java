@@ -18,6 +18,7 @@ public class Report {
         List<List<Double>> B = new ArrayList<List<Double>>();
         for(int i=1; i<=10; ++i){
             A.add(new ArrayList<Double>());
+            B.add(new ArrayList<Double>());
             List<Double> alst = A.get(i-1);
             List<Double> blst = B.get(i-1);
             B.add(new ArrayList<Double>());
@@ -68,7 +69,7 @@ public class Report {
 
         System.out.println("A loss\tB loss");
         for(int i=0; i<10; ++i){
-            System.out.print(aRst[i]+"\t"+bRst[i]+"\n");
+            System.out.print(aRst[i] + "\t" + bRst[i] + "\n");
         }
 
     }
