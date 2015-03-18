@@ -1,37 +1,22 @@
-load('RandFileList.mat');% Load RandFileList var
-% create input for q+2-0 using 30% first data
-numFile = size(RandFileList,1);
+load('FileMat.mat');% Load RandFileList var
+% create input for q+0-0 using 30% first data
+numFile = size(FileMat,1);
 numTrain = 3*numFile/10;
 numTest = numFile/20;
-prefix = './q20/q20.';
-
+prefix = './q00/q00.';
 for t=1:10
 
 f = fopen([prefix int2str(t) '.in'], 'w');
 for qid=1:numTrain
-	load(['./data/' RandFileList(qid, t).name]);%load F and L
-	numFeat = size(F,1);	
+	load(['./data/' FileMat{qid, t}]);%load F and L
 	numFrame = size(F,2);
-	for i=1:numFrame
-		if(i==numFrame)
-		F(numFeat+1:2*numFeat, i) = zeros(numFeat,1);
-		continue;		
-		end
-		F(numFeat+1:2*numFeat, i) = F(1:numFeat,i+1);
-	end
-	numFeat = size(F,1);	
+	numFeat = size(F,1);
+ 	
 	for i=1:numFrame
 		FF = [F(1:numFeat,i); quadratic(F(1:numFeat,i))];
 		F(1:size(FF,1), i) = FF;
 	end
-	numFeat = size(F, 1);
-	for i=1:numFrame
-		if(i<=2)
-			F(numFeat+1:numFeat+12, i) = zeros(12,1);
-		else
-			F(numFeat+1:numFeat+12, i) = F(1:12, i-2);
-	end
-	numFeat = size(F, 1);
+	numFeat = size(F,1);
 
 	for frame=1:numFrame
 		label = L(frame) + 1;
@@ -44,34 +29,21 @@ for qid=1:numTrain
 end
 fclose(f);
 
+
 f = fopen([prefix int2str(t) '.a.test'], 'w');
 startTest = numFile - 2*numTest + 1;
 endTest = numFile - numTest;
 q = 1;
 for qid=startTest:endTest
-	load(['./data/' RandFileList(qid, t).name]);
+	load(['./data/' FileMat{qid, t}]);
 	numFrame = size(F,2);
 	numFeat = size(F,1);
-	for i=1:numFrame
-		if(i==numFrame)
-		F(numFeat+1:2*numFeat, i) = zeros(numFeat,1);
-		continue;		
-		end
-		F(numFeat+1:2*numFeat, i) = F(1:numFeat,i+1);
-	end
-	numFeat = size(F,1);	
+
 	for i=1:numFrame
 		FF = [F(1:numFeat,i); quadratic(F(1:numFeat,i))];
 		F(1:size(FF,1), i) = FF;
 	end
-	numFeat = size(F, 1);
-	for i=1:numFrame
-		if(i<=2)
-			F(numFeat+1:numFeat+12, i) = zeros(12,1);
-		else
-			F(numFeat+1:numFeat+12, i) = F(1:12, i-2);
-	end
-	numFeat = size(F, 1);
+	numFeat = size(F,1);
 
 	for frame=1:numFrame
 		label = L(frame) + 1;
@@ -84,36 +56,23 @@ for qid=startTest:endTest
 	q = q+1;
 end
 fclose(f);
+
 
 f = fopen([prefix int2str(t) '.b.test'], 'w');
 startTest = numFile - numTest + 1;
 endTest = numFile;
 q = 1;
 for qid=startTest:endTest
-	load(['./data/' RandFileList(qid, t).name]);
+	load(['./data/' FileMat{qid, t}]);
 	numFrame = size(F,2);
 	numFeat = size(F,1);
-	for i=1:numFrame
-		if(i==numFrame)
-		F(numFeat+1:2*numFeat, i) = zeros(numFeat,1);
-		continue;		
-		end
-		F(numFeat+1:2*numFeat, i) = F(1:numFeat,i+1);
-	end
-	numFeat = size(F,1);	
+
 	for i=1:numFrame
 		FF = [F(1:numFeat,i); quadratic(F(1:numFeat,i))];
 		F(1:size(FF,1), i) = FF;
 	end
-	numFeat = size(F, 1);
-	for i=1:numFrame
-		if(i<=2)
-			F(numFeat+1:numFeat+12, i) = zeros(12,1);
-		else
-			F(numFeat+1:numFeat+12, i) = F(1:12, i-2);
-	end
-	numFeat = size(F, 1);
-
+	numFeat = size(F,1);
+	
 	for frame=1:numFrame
 		label = L(frame) + 1;
 		fprintf(f, '%d qid:%d', label, q);
@@ -126,5 +85,5 @@ for qid=startTest:endTest
 end
 fclose(f);
 
-
 end
+
