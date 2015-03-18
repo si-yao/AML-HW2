@@ -13,7 +13,7 @@ for qid=1:numTrain
 	numFeat = size(F,1);
  	
 	for i=1:numFrame
-		FF = [F(:,i); quadratic(F(:,i))];
+		FF = [F(1:numFeat,i); quadratic(F(1:numFeat,i))];
 		F(1:size(FF,1), i) = FF;
 	end
 	numFeat = size(F,1);
@@ -40,7 +40,7 @@ for qid=startTest:endTest
 	numFeat = size(F,1);
 
 	for i=1:numFrame
-		FF = [F(:,i); quadratic(F(:,i))];
+		FF = [F(1:numFeat,i); quadratic(F(1:numFeat,i))];
 		F(1:size(FF,1), i) = FF;
 	end
 	numFeat = size(F,1);
@@ -68,7 +68,7 @@ for qid=startTest:endTest
 	numFeat = size(F,1);
 
 	for i=1:numFrame
-		FF = [F(:,i); quadratic(F(:,i))];
+		FF = [F(1:numFeat,i); quadratic(F(1:numFeat,i))];
 		F(1:size(FF,1), i) = FF;
 	end
 	numFeat = size(F,1);
