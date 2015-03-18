@@ -1,0 +1,36 @@
+ssh sl3766@nassau.clic.cs.columbia.edu
+ssh sl3766@ankara.clic.cs.columbia.edu
+ssh sl3766@moscow.clic.cs.columbia.edu
+ssh sl3766@taipei.clic.cs.columbia.edu
+ssh sl3766@nairobi.clic.cs.columbia.edu
+ssh sl3766@hanoi.clic.cs.columbia.edu
+ssh sl3766@yerevan.clic.cs.columbia.edu
+ssh sl3766@london.clic.cs.columbia.edu
+ssh sl3766@beijing.clic.cs.columbia.edu
+ssh sl3766@damascus.clic.cs.columbia.edu
+#ssh sl3766@rabat.clic.cs.columbia.edu
+
+
+ssh sl3766@jakarta.clic.cs.columbia.edu
+
+# for +0-0
+cd ./Documents/AML-HW2
+nohup java FindAll 00                 <#train> &
+
+
+# for +1-0
+cd ./Documents/AML-HW2
+nohup java FindAll 10                 <#train> &
+
+
+# for +2-0
+cd ./Documents/AML-HW2
+nohup java FindAll 20                 <#train> &
+
+# for +0-1
+cd ./Documents/AML-HW2
+nohup java FindAll 01                 <#train> &
+
+# for +0-2
+cd ./Documents/AML-HW2
+nohup java FindAll 02                 <#train> &
