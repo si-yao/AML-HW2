@@ -34,3 +34,7 @@ nohup java FindAll 01                 <#train> &
 # for +0-2
 cd ./Documents/AML-HW2
 nohup java FindAll 02                 <#train> &
+
+# for q+0-0
+cd ./Documents/AML-HW2
+nohup java FindAll q00                 <#train> &
