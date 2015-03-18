@@ -7,4 +7,4 @@ for t=1:10
 	end
 end
 
-save('FileMat.mat', 'FileMat');
+save('-ascii', 'FileMat.mat', 'FileMat');
