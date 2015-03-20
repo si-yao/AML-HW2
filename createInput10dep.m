@@ -7,6 +7,7 @@ prefix = './10dep/10dep.';
 for t=1:10
 
 f = fopen([prefix int2str(t) '.in'], 'w');
+qqid = 1;
 for qid=1:numTrain
 	load(['./data/' RandFileList(qid, t).name]);%load F and L
 	numFeat = size(F,1);	
@@ -19,7 +20,6 @@ for qid=1:numTrain
 		F(numFeat+1:2*numFeat, i) = F(1:numFeat,i+1);
 	end
 	numFeat = size(F, 1);
-	qqid = 1;
 	for frame=1:numFrame
 		label = L(frame) + 1;
 		fprintf(f, '%d qid:%d', label, qqid);
