@@ -30,6 +30,7 @@ for qid=1:numTrain
 			F(numFeat+1:numFeat+12, i) = zeros(12,1);
 		else
 			F(numFeat+1:numFeat+12, i) = F(1:12, i-2);
+		end
 	end
 	numFeat = size(F, 1);
 
@@ -70,6 +71,7 @@ for qid=startTest:endTest
 			F(numFeat+1:numFeat+12, i) = zeros(12,1);
 		else
 			F(numFeat+1:numFeat+12, i) = F(1:12, i-2);
+		end
 	end
 	numFeat = size(F, 1);
 
@@ -111,6 +113,7 @@ for qid=startTest:endTest
 			F(numFeat+1:numFeat+12, i) = zeros(12,1);
 		else
 			F(numFeat+1:numFeat+12, i) = F(1:12, i-2);
+		end
 	end
 	numFeat = size(F, 1);
 
