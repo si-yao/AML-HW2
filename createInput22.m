@@ -22,6 +22,7 @@ for qid=1:numTrain
 		else
 			F(numFeat+1:2*numFeat, i) = F(1:numFeat,i+1);
 			F(2*numFeat+1:3*numFeat) = F(1:numFeat, i+2);
+		end
 		if(i==1)
 			F(3*numFeat+1:4*numFeat, i) = zeros(numFeat, 1);
 			F(4*numFeat+1:5*numFeat, i) = zeros(numFeat, 1);
@@ -31,6 +32,7 @@ for qid=1:numTrain
 		else
 			F(3*numFeat+1:4*numFeat, i) = F(1:numFeat, i-1);
 			F(4*numFeat+1:5*numFeat, i) = F(1:numFeat, i-2);
+		end
 	end
 	numFeat = size(F, 1);
 	
@@ -63,6 +65,7 @@ for qid=startTest:endTest
 		else
 			F(numFeat+1:2*numFeat, i) = F(1:numFeat,i+1);
 			F(2*numFeat+1:3*numFeat) = F(1:numFeat, i+2);
+		end
 		if(i==1)
 			F(3*numFeat+1:4*numFeat, i) = zeros(numFeat, 1);
 			F(4*numFeat+1:5*numFeat, i) = zeros(numFeat, 1);
@@ -72,6 +75,7 @@ for qid=startTest:endTest
 		else
 			F(3*numFeat+1:4*numFeat, i) = F(1:numFeat, i-1);
 			F(4*numFeat+1:5*numFeat, i) = F(1:numFeat, i-2);
+		end
 	end
 	numFeat = size(F, 1);
 
@@ -105,6 +109,7 @@ for qid=startTest:endTest
 		else
 			F(numFeat+1:2*numFeat, i) = F(1:numFeat,i+1);
 			F(2*numFeat+1:3*numFeat) = F(1:numFeat, i+2);
+		end
 		if(i==1)
 			F(3*numFeat+1:4*numFeat, i) = zeros(numFeat, 1);
 			F(4*numFeat+1:5*numFeat, i) = zeros(numFeat, 1);
@@ -114,6 +119,7 @@ for qid=startTest:endTest
 		else
 			F(3*numFeat+1:4*numFeat, i) = F(1:numFeat, i-1);
 			F(4*numFeat+1:5*numFeat, i) = F(1:numFeat, i-2);
+		end
 	end
 	numFeat = size(F, 1);
 
